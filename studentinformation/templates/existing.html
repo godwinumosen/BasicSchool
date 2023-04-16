@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<html> 
+   
+{% block content %}<br>
+<center> <h1>{{title}}</h1></center><br>
+
+<center><table border =2>
+    <thead>
+        <tr>
+            <td>S.No</td>
+            <td>FIRST_NAME</td>
+            <td>LAST_NAME</td>
+            <td>CLASS</td>
+            <td>ADDRESS</td>
+            <td>SCHOOL</td>
+            <td>E-MAIL</td>
+        </tr>
+    </thead>
+    {% for k in queryset %}
+    <tbody>
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{ k.student_first_name }}</td>
+            <td>{{ k.student_last_name }}</td>
+            <td>{{ k.student_class }}</td>
+            <td>{{ k.student_address }}</td>
+            <td>{{ k.student_school }}</td>
+            <td>{{ k.student_email }}</td>
+        </tr>
+    <tbody>
+    {% endfor %}
+<table></center>
+{% endblock %}
+</html>
+
+
+
+

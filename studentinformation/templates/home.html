@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+
+    {% block content %}
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary px-0 px-md-5 mb-5">
+        <div class="row align-items-center px-3">
+            <div class="col-lg-6 text-center text-lg-left">
+                <h4 class="text-white mb-4 mt-5 mt-lg-0">Kids Learning Center</h4>
+                <h1 class="display-3 font-weight-bold text-white">{{title}}</h1>
+                <p class="text-white mb-4">{{page}}</p>
+
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <img class="img-fluid mt-5" src="{% static 'img/header.png'%}" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Class Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">Popular Classes</span></p>
+                <h1 class="mb-4">Classes for Your Kids</h1>
+            </div>
+            
+            <div class="row">
+                {% for clas in classes %}
+                <div class="col-lg-4 mb-5">         
+                    <div class="card border-0 bg-light shadow-sm pb-2">
+                        <img class="card-img-top mb-2" src="{{clas.image.url}}" alt="">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">{{clas.class_name}}</h4>
+                            <p class="card-text">{{clas.content}}</p>
+                        </div>
+                        <div class="card-footer bg-transparent py-4 px-5">
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Age of kid</strong></div>
+                                <div class="col-6 py-1">{{clas.age_of_kid}}</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Total Seats</strong></div>
+                                <div class="col-6 py-1">{{clas.total_seat}}</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Class Time</strong></div>
+                                <div class="col-6 py-1">{{clas.class_time}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 py-1 text-right border-right"><strong>Tution Fee</strong></div>
+                                <div class="col-6 py-1">{{clas.fee}}</div>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a> 
+                        
+                    </div>
+                </div>
+                {% endfor %} 
+            </div>
+            
+        </div>
+    </div>
+    <!-- Class End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">Latest Blog</span></p>
+                <h1 class="mb-4">Latest Articles From Blog</h1>
+            </div>
+            <div class="row pb-3">
+                {% for blog in blogs%}
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 shadow-sm mb-2">
+                        <img class="card-img-top mb-2" src="{{blog.image.url}}" alt="">
+                        <div class="card-body bg-light text-center p-4">
+                            <h3 class="">{{blog.title}}</h3>
+                            <p>{{blog.content}}</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+   {% endblock %}
+
+</html>

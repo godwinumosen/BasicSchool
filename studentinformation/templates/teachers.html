@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content%}
+<!-- Team Start -->
+ <div class="container-fluid pt-5">
+    <div class="container">
+        <div class="text-center pb-2">
+            <p class="section-title px-5"><span class="px-2">{{head}}</span></p>
+            <h1 class="mb-4">{{head_title}}</h1>
+        </div>
+
+        <div class="row">
+            {% for teacher in teachers %}
+            <div class="col-md-6 col-lg-3 text-center team mb-5">
+                <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                    <img class="img-fluid w-100" src="{{teacher.image.url}}" alt="" >
+                   
+                </div>
+                <h4>{{teacher.teacher_name}}</h4>
+                <i>{{teacher.teacher_subject}}</i>
+            </div> 
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+{% endblock %}
